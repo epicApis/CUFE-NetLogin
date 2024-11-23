@@ -43,9 +43,10 @@
 
       [
         // 居然用GET明文传输密码，这是什么年代了。。。
-        `http://10.13.13.2/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456&terminal_type=1&v=0000`,
-        `http://10.2.193.1/drcom/login?callback=dr1003&DDDDD=${username_url}%40cufe&upass=${password_url}&0MKKey=123456&terminal_type=1&v=0000`,
-        `http://10.200.0.5/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456&terminal_type=1&v=0000`,
+        `http://10.13.13.2/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456&terminal_type=1&v=0000`, // 沙河有线
+        `http://10.2.193.1/drcom/login?callback=dr1003&DDDDD=${username_url}%40cufe&upass=${password_url}&0MKKey=123456&terminal_type=1&v=0000`, // 南路无线
+        `http://10.200.0.5/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456&terminal_type=1&v=0000`, // 沙河无线
+        `http://192.168.31.2/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456&terminal_type=1&v=0000`, // 南路有线
       ].forEach((url) => {
         const iframe = document.createElement("iframe");
         iframe.src = url;
