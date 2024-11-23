@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CUFE校园网登录链接生成</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      function syncInfo() {
+        var username = document.getElementById("username").value.trim();
+        var password = document.getElementById("password").value.trim();
+        var username_url = encodeURIComponent(username) || "你的学号";
+        var password_url = encodeURIComponent(password) || "你的密码";
+
+        var urlA = `http://10.2.193.1/drcom/login?callback=dr1003&DDDDD=${username_url}%40cufe&upass=${password_url}&0MKKey=123456`;
+        var aA = document.querySelector("#disA a");
+        aA.href = urlA;
+        aA.innerText = urlA;
+
+        var urlB = `http://10.13.13.2/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456`;
+        var aB = document.querySelector("#disB a");
+        aB.href = urlB;
+        aB.innerText = urlB;
+
+        var urlC = `http://10.200.0.5/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456`;
+        var aC = document.querySelector("#disC a");
+        aC.href = urlC;
+        aC.innerText = urlC;
+
+        var urlD = `http://192.168.31.2/drcom/login?callback=dr1003&DDDDD=${username_url}&upass=${password_url}&0MKKey=123456`;
+        var aD = document.querySelector("#disD a");
+        aD.href = urlD;
+        aD.innerText = urlD;
+      }
+
+      function copyToClipboard(div) {
+        var textToCopy = document.querySelector("#" + div + " a").innerText;
+        navigator.clipboard.writeText(textToCopy).then(function () {
+          var button = document.querySelector("#" + div + " button");
+          button.innerText = "已复制！";
+          button.className = "button-copied";
+          setTimeout(function () {
+            button.innerText = "点击复制";
+            button.className = "button-default";
+          }, 2000);
+        });
+      }
+
+      function reset() {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+
+        var aA = document.querySelector("#disA a");
+        aA.href = "http://10.2.193.1/";
+        aA.innerText = "http://10.2.193.1/";
+
+        var aB = document.querySelector("#disB a");
+        aB.href = "http://10.13.13.2/";
+        aB.innerText = "http://10.13.13.2/";
+
+        var aC = document.querySelector("#disC a");
+        aC.href = "http://10.200.0.5/";
+        aC.innerText = "http://10.200.0.5/";
+
+        var aD = document.querySelector("#disD a");
+        aD.href = "http://192.168.31.2/";
+        aD.innerText = "http://192.168.31.2/";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>CUFE校园网登录链接生成</h1>
+    <div>
+      <label for="username">学号：</label>
+      <input
+        type="text"
+        id="username"
+        oninput="syncInfo()"
+        placeholder="2023311152"
+      />
+      <label for="password">密码：</label>
+      <input
+        type="text"
+        id="password"
+        oninput="syncInfo()"
+        placeholder="仅供本地生成"
+      />
+      <p>
+        <button onclick="syncInfo()">生成</button>
+        <button onclick="reset()">重置</button>
+      </p>
+    </div>
+    <div>
+      <p>
+        <strong>注意：</strong
+        >这里的密码使用明文是因为生成的链接中的密码是也是明文的
+      </p>
+    </div>
+    <div id="display">
+      <div id="disA" class="stack">
+        <button class="button-default" onclick="copyToClipboard('disA')">
+          点击复制
+        </button>
+        <button onclick="window.open(`http:\/\/10.2.193.1\/`)">
+          学院南路无线网
+        </button>
+        <a href="http://10.2.193.1/" target="_blank">http://10.2.193.1/</a>
+      </div>
+      <div id="disB" class="stack">
+        <button class="button-default" onclick="copyToClipboard('disB')">
+          点击复制
+        </button>
+        <button onclick="window.open(`http:\/\/10.13.13.2\/`)">
+          沙河校区有线网
+        </button>
+        <a href="http://10.13.13.2/" target="_blank">http://10.13.13.2/</a>
+      </div>
+      <div id="disC" class="stack">
+        <button class="button-default" onclick="copyToClipboard('disC')">
+          点击复制
+        </button>
+        <button onclick="window.open(`http:\/\/10.200.0.5\/`)">
+          沙河校区无线网
+        </button>
+        <a href="http://10.200.0.5/" target="_blank">http://10.200.0.5/</a>
+      </div>
+      <div id="disD" class="stack">
+        <button class="button-default" onclick="copyToClipboard('disD')">
+          点击复制
+        </button>
+        <button onclick="window.open(`http:\/\/192.168.31.2\/`)">
+          学院南路有线网
+        </button>
+        <a href="http://192.168.31.2/" target="_blank">http://192.168.31.2/</a>
+      </div>
+    </div>
+    <div>
+      <p>
+        <strong>使用方法：</strong
+        >点击链接会直接在新标签页中打开，将其收藏即可实现一键登录（在移动平台上选择添加到主屏幕即可）。
+      </p>
+      <p>在连接到CUFE校园网的情况下，点击链接会直接登录校园网。</p>
+
+      <div class="container">
+        <div class="box">
+          <h2>登录成功</h2>
+          <p>新打开的标签页中会开头有“result:1”字样即表示登录成功。</p>
+        </div>
+        <div class="box box-fail">
+          <h2>登录失败</h2>
+          <p>
+            新打开的标签页中会开头有“result:0”字样或者“Error205”即表示登录失败，多刷新几次一般可以解决。（如果啥都没有，请检查是否连接到CUFE校园网）
+          </p>
+        </div>
+      </div>
+      <div class="box box-tips">
+        <h2>小贴士</h2>
+        <p>
+          极短时间内同时打开4个链接可能会导致其中一个登录失败，一般来说刷新即可解决。
+        </p>
+        <p>
+          连接到校园网后，如果自动弹出登录页面，可以直接关闭（或选择“不连接互联网使用”），然后访问以上链接。
+        </p>
+      </div>
+      <div class="box box-qa">
+        <h2>常见问题</h2>
+        <p class="question">Q：为什么是这4个地址？</p>
+        <p class="answer">
+          A：请参见智慧校园建设中心发布的
+          <a href="https://zhxy.cufe.edu.cn/info/1040/3391.htm" target="_blank"
+            >校园网使用说明</a
+          >。
+        </p>
+        <p class="question">Q：这个生成安全吗？</p>
+        <p class="answer">
+          A：至少比校园网明文传输密码安全。本页面不会上传任何数据，所有操作均在本地进行，可以查看源代码确认。
+        </p>
+      </div>
+    </div>
+    <div class="box box-github">
+      <h2>项目地址</h2>
+      <p>
+        你可以在GitHub上找到这个项目：
+        <a href="https://github.com/epicApis/CUFE-NetLogin" target="_blank"
+          >https://github.com/epicApis/CUFE-NetLogin</a
+        >
+      </p>
+    </div>
+  </body>
+</html>
