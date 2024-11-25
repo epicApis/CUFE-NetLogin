@@ -1,0 +1,137 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  padding: 0;
+  /* background-color: #f4f4f4; */
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+button {
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px 4px 2px;
+  transition: all 0.3s ease 0s;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: gray;
+  color: white;
+}
+
+.button-default {
+  background-color: lightgray;
+  color: black;
+}
+
+.button-copied {
+  background-color: darkgreen;
+  color: white;
+}
+
+.stack a {
+  white-space: nowrap;
+  color: darkblue;
+  background-color: rgb(234, 234, 234);
+  display: flex;
+  align-items: center;
+  margin: 2px;
+}
+
+.stack {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box {
+  flex: 1 1 45%;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  color: black;
+  background-color: rgba(
+    0,
+    255,
+    0,
+    0.2
+  ); /* Green background with transparency */
+}
+
+.box h2 {
+  color: green;
+}
+
+.box-fail {
+  background-color: rgba(255, 0, 0, 0.2); /* Red background with transparency */
+}
+
+.box-fail h2 {
+  color: red;
+}
+
+.box-tips {
+  background-color: rgba(
+    128,
+    0,
+    128,
+    0.2
+  ); /* Purple background with transparency */
+}
+
+.box-tips h2 {
+  color: purple;
+}
+
+.box-qa {
+  background-color: rgba(
+    0,
+    0,
+    255,
+    0.2
+  ); /* Light blue background with transparency */
+}
+
+.box-qa h2 {
+  color: blue;
+}
+
+.box-qa p {
+  margin: 10px 0;
+}
+
+.box-qa .question {
+  font-weight: bold;
+  color: darkblue;
+}
+
+.box-qa .answer {
+  margin-left: 20px;
+  color: darkgreen;
+}
+
+.box-github {
+  background-color: rgba(0, 0, 0, 0.2); /* Black background with transparency */
+}
+
+.box-github h2 {
+  color: black;
+}
+
+input:placeholder-shown {
+  border: 2px solid darkred;
+}
