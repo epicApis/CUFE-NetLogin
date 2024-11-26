@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-9PQYMNME5R"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-9PQYMNME5R");
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CUFE校园网登录链接生成</title>
@@ -80,30 +66,45 @@
         aD.href = "http://192.168.31.2/";
         aD.innerText = "http://192.168.31.2/";
       }
+
+      fetch("https://logincufestatistics.epicapis.net/access")
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById(
+            "statistics"
+          ).innerText = `累计访问次数：${data.count}`;
+        })
+        .catch((error) => console.error("Error fetching access count:", error));
     </script>
   </head>
   <body>
     <h1>CUFE校园网登录链接生成</h1>
-    <div>
-      <label for="username">学号：</label>
-      <input
-        type="text"
-        id="username"
-        oninput="syncInfo()"
-        placeholder="2023311152"
-      />
-      <label for="password">密码：</label>
-      <input
-        type="text"
-        id="password"
-        oninput="syncInfo()"
-        placeholder="仅供本地生成"
-      />
-      <p>
-        <button onclick="syncInfo()">生成</button>
-        <button onclick="reset()">重置</button>
-      </p>
+    <div id="statistics">累计访问次数：</div>
+    <div id="inputcontainer">
+      <div>
+        <label for="username">学号：</label>
+        <input
+          type="text"
+          id="username"
+          oninput="syncInfo()"
+          placeholder="2023311152"
+        />
+      </div>
+      <div>
+        <label for="password">密码：</label>
+        <input
+          type="text"
+          id="password"
+          oninput="syncInfo()"
+          placeholder="仅供本地生成"
+        />
+      </div>
     </div>
+
+    <p>
+      <button onclick="syncInfo()">生成</button>
+      <button onclick="reset()">重置</button>
+    </p>
     <div>
       <p>
         <strong>注意：</strong
@@ -194,7 +195,7 @@
     <div class="box box-github">
       <h2>项目地址</h2>
       <p>
-        你可以在GitHub上找到这个项目：
+        你可以在GitHub上找到这个项目：<br />
         <a href="https://github.com/epicApis/CUFE-NetLogin" target="_blank"
           >https://github.com/epicApis/CUFE-NetLogin</a
         >
