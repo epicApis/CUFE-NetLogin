@@ -7,8 +7,31 @@
     <link rel="stylesheet" href="style.css" />
     <script>
       function syncInfo() {
-        var username = document.getElementById("username").value.trim();
-        var password = document.getElementById("password").value.trim();
+        const usernameinput = document.getElementById("username");
+        const passwordinput = document.getElementById("password");
+        var username = usernameinput.value.trim();
+        var password = passwordinput.value.trim();
+        if (username === "") usernameinput.classList.add("empty");
+        else usernameinput.classList.remove("empty");
+        if (password === "") passwordinput.classList.add("empty");
+        else passwordinput.classList.remove("empty");
+
+        var inputWarn = document.getElementById("inputwarn");
+        inputWarn.style.display = "none";
+
+        for (var i = 0; i < username.length; i++) {
+          if (username.charCodeAt(i) < 32 || username.charCodeAt(i) > 128) {
+            inputWarn.style.display = "block";
+            break;
+          }
+        }
+
+        for (var i = 0; i < password.length; i++) {
+          if (password.charCodeAt(i) < 32 || password.charCodeAt(i) > 128) {
+            inputWarn.style.display = "block";
+            break;
+          }
+        }
         var username_url = encodeURIComponent(username) || "你的学号";
         var password_url = encodeURIComponent(password) || "你的密码";
 
@@ -78,7 +101,7 @@
     </script>
   </head>
   <body>
-    <h1>CUFE校园网登录链接生成</h1>
+    <h1>CUFE校园网<br />直接登录链接生成</h1>
     <div id="statistics">累计访问次数：</div>
     <div id="inputcontainer">
       <div>
@@ -100,7 +123,9 @@
         />
       </div>
     </div>
-
+    <div id="inputwarn" style="display: none; color: red">
+      您似乎输入了不常见于账号密码的字符，最好检查一下输入法
+    </div>
     <p>
       <button onclick="syncInfo()">生成</button>
       <button onclick="reset()">重置</button>
@@ -119,7 +144,9 @@
         <button onclick="window.open(`http:\/\/10.2.193.1\/`)">
           学院南路无线网
         </button>
-        <a href="http://10.2.193.1/" target="_blank">http://10.2.193.1/</a>
+        <div class="flexbox">
+          <a href="http://10.2.193.1/" target="_blank">http://10.2.193.1/</a>
+        </div>
       </div>
       <div id="disB" class="stack">
         <button class="button-default" onclick="copyToClipboard('disB')">
@@ -128,7 +155,9 @@
         <button onclick="window.open(`http:\/\/10.13.13.2\/`)">
           沙河校区有线网
         </button>
-        <a href="http://10.13.13.2/" target="_blank">http://10.13.13.2/</a>
+        <div class="flexbox">
+          <a href="http://10.13.13.2/" target="_blank">http://10.13.13.2/</a>
+        </div>
       </div>
       <div id="disC" class="stack">
         <button class="button-default" onclick="copyToClipboard('disC')">
@@ -137,7 +166,9 @@
         <button onclick="window.open(`http:\/\/10.200.0.5\/`)">
           沙河校区无线网
         </button>
-        <a href="http://10.200.0.5/" target="_blank">http://10.200.0.5/</a>
+        <div class="flexbox">
+          <a href="http://10.200.0.5/" target="_blank">http://10.200.0.5/</a>
+        </div>
       </div>
       <div id="disD" class="stack">
         <button class="button-default" onclick="copyToClipboard('disD')">
@@ -146,13 +177,17 @@
         <button onclick="window.open(`http:\/\/192.168.31.2\/`)">
           学院南路有线网
         </button>
-        <a href="http://192.168.31.2/" target="_blank">http://192.168.31.2/</a>
+        <div class="flexbox">
+          <a href="http://192.168.31.2/" target="_blank"
+            >http://192.168.31.2/</a
+          >
+        </div>
       </div>
     </div>
     <div>
       <p>
         <strong>使用方法：</strong
-        >点击链接会直接在新标签页中打开，将其收藏即可实现一键登录（在移动平台上选择添加到主屏幕即可）。
+        >点击链接会直接在新标签页中打开，若能断定登录成功，将其收藏即可实现一键登录（在移动平台上选择添加到主屏幕即可）。
       </p>
       <p>在连接到CUFE校园网的情况下，点击链接会直接登录校园网。</p>
 
@@ -160,6 +195,7 @@
         <div class="box">
           <h2>登录成功</h2>
           <p>新打开的标签页中会开头有“result:1”字样即表示登录成功。</p>
+          <img src="success.png" alt="result:1" style="max-width: 100%" />
         </div>
         <div class="box box-fail">
           <h2>登录失败</h2>
@@ -176,6 +212,7 @@
         <p>
           连接到校园网后，如果自动弹出登录页面，可以直接关闭（或选择“不连接互联网使用”），然后访问以上链接。
         </p>
+        <img src="skip.png" alt="不连接互联网使用" style="max-width: 100%" />
       </div>
       <div class="box box-qa">
         <h2>常见问题</h2>

@@ -1,7 +1,4 @@
 /* styles.css */
-html {
-  justify-items: center;
-}
 body {
   font-family: Arial, sans-serif;
   margin: 10px;
@@ -47,9 +44,8 @@ button:hover {
   white-space: nowrap;
   color: darkblue;
   background-color: rgb(234, 234, 234);
-  display: flex;
   align-items: center;
-  margin: 2px;
+  padding: 7px;
 }
 
 .stack {
@@ -137,8 +133,11 @@ button:hover {
   color: black;
 }
 
-input:placeholder-shown {
-  border: 2px solid darkred;
+.empty {
+  border: 2px solid red;
+}
+input {
+  border: 2px solid;
 }
 
 label,
@@ -149,4 +148,11 @@ input {
 #inputcontainer {
   display: flex;
   justify-content: center;
+}
+
+.flexbox {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
