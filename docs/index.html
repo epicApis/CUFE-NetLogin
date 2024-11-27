@@ -60,7 +60,9 @@
       function copyToClipboard(div) {
         var textToCopy = document.querySelector("#" + div + " a").innerText;
         navigator.clipboard.writeText(textToCopy).then(function () {
-          var button = document.querySelector("#" + div + " button");
+          var button = document.querySelector(
+            "#" + div + " button.button-default"
+          );
           button.innerText = "已复制！";
           button.className = "button-copied";
           setTimeout(function () {
