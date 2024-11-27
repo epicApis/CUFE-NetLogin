@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>CUFE校园网登录链接生成</title>
     <link rel="stylesheet" href="style.css" />
     <script>
@@ -138,44 +139,44 @@
     </div>
     <div id="display">
       <div id="disA" class="stack">
-        <button class="button-default" onclick="copyToClipboard('disA')">
-          点击复制
-        </button>
         <button onclick="window.open(`http:\/\/10.2.193.1\/`)">
           学院南路无线网
+        </button>
+        <button class="button-default" onclick="copyToClipboard('disA')">
+          点击复制
         </button>
         <div class="flexbox">
           <a href="http://10.2.193.1/" target="_blank">http://10.2.193.1/</a>
         </div>
       </div>
       <div id="disB" class="stack">
-        <button class="button-default" onclick="copyToClipboard('disB')">
-          点击复制
-        </button>
         <button onclick="window.open(`http:\/\/10.13.13.2\/`)">
           沙河校区有线网
+        </button>
+        <button class="button-default" onclick="copyToClipboard('disB')">
+          点击复制
         </button>
         <div class="flexbox">
           <a href="http://10.13.13.2/" target="_blank">http://10.13.13.2/</a>
         </div>
       </div>
       <div id="disC" class="stack">
-        <button class="button-default" onclick="copyToClipboard('disC')">
-          点击复制
-        </button>
         <button onclick="window.open(`http:\/\/10.200.0.5\/`)">
           沙河校区无线网
+        </button>
+        <button class="button-default" onclick="copyToClipboard('disC')">
+          点击复制
         </button>
         <div class="flexbox">
           <a href="http://10.200.0.5/" target="_blank">http://10.200.0.5/</a>
         </div>
       </div>
       <div id="disD" class="stack">
-        <button class="button-default" onclick="copyToClipboard('disD')">
-          点击复制
-        </button>
         <button onclick="window.open(`http:\/\/192.168.31.2\/`)">
           学院南路有线网
+        </button>
+        <button class="button-default" onclick="copyToClipboard('disD')">
+          点击复制
         </button>
         <div class="flexbox">
           <a href="http://192.168.31.2/" target="_blank"
@@ -187,13 +188,16 @@
     <div>
       <p>
         <strong>使用方法：</strong
-        >点击链接会直接在新标签页中打开，若能断定登录成功，将其收藏即可实现一键登录（在移动平台上选择添加到主屏幕即可）。
+        >左侧的按钮是常规登录页面；点击<strong>右侧链接（而不是按钮）</strong>才会在新标签页中进行登录，若能断定<a
+          href="#login-success"
+          >登录成功</a
+        >，将其收藏到书签栏即可实现再次点开时一键登录（在移动平台上选择添加到主屏幕即可）。
       </p>
       <p>在连接到CUFE校园网的情况下，点击链接会直接登录校园网。</p>
 
       <div class="container">
         <div class="box">
-          <h2>登录成功</h2>
+          <h2 id="login-success">登录成功</h2>
           <p>新打开的标签页中会开头有“result:1”字样即表示登录成功。</p>
           <img src="success.png" alt="result:1" style="max-width: 100%" />
         </div>
@@ -226,6 +230,40 @@
         <p class="question">Q：这个生成安全吗？</p>
         <p class="answer">
           A：至少比校园网明文传输密码安全。本页面不会上传任何数据，所有操作均在本地进行，可以查看源代码确认。
+        </p>
+        <p class="question">Q：校园网自助服务系统呢？</p>
+        <p class="answer">
+          A：
+          <a href="http://10.13.7.35:8080/" target="_blank">在这里</a>
+          （请先连上校园网，账号密码是对应一致的）。
+        </p>
+        <p class="question">Q：如何注销登录？</p>
+        <p class="answer">
+          A：理论上点击对应的链接即可，但似乎不能真的注销登录，建议直接断开连接。
+          <br />
+          <a
+            href="http://10.2.193.1/drcom/logout?callback=dr1005 "
+            target="_blank"
+            >学院南路无线网</a
+          >
+          <br />
+          <a
+            href="http://10.13.13.2/drcom/logout?callback=dr1005"
+            target="_blank"
+            >沙河校区有线网</a
+          >
+          <br />
+          <a
+            href="http://10.200.0.5/drcom/logout?callback=dr1005"
+            target="_blank"
+            >沙河校区无线网</a
+          >
+          <br />
+          <a
+            href="http://192.168.31.2/drcom/logout?callback=dr1005"
+            target="_blank"
+            >学院南路有线网</a
+          >
         </p>
       </div>
     </div>
