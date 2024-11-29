@@ -115,6 +115,16 @@
           ).innerText = `累计访问次数：${data.count}`;
         })
         .catch((error) => console.error("Error fetching access count:", error));
+
+      function isWeChat() {
+        var ua = navigator.userAgent.toLowerCase();
+        return ua.indexOf("micromessenger") !== -1;
+      }
+
+      if (isWeChat()) {
+        var uaWarn = document.getElementById("uawarn");
+        uaWarn.style.display = "block";
+      }
     </script>
   </head>
   <body>
@@ -142,6 +152,9 @@
     </div>
     <div id="inputwarn" style="display: none; color: red">
       您似乎输入了不常见于账号密码的字符，最好检查一下输入法
+    </div>
+    <div id="uawarn" style="display: none; color: orange">
+      建议（在右上角）选择浏览器中打开此页面
     </div>
     <p>
       <button onclick="generate()" id="generate">生成</button>
