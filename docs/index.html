@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>CUFE校园网登录链接生成</title>
+    <title>CUFE校园网直接登录链接生成</title>
     <link rel="stylesheet" href="style.css" />
     <script>
       function syncInfo() {
@@ -68,8 +68,22 @@
           setTimeout(function () {
             button.innerText = "点击复制";
             button.className = "button-default";
-          }, 2000);
+          }, 1000);
         });
+      }
+      function generate() {
+        generateor = document.getElementById("generate");
+        username = document.getElementById("username").value;
+        password = document.getElementById("password").value;
+        if (username === "" || password === "") {
+          generateor.innerText = "请输入学号和密码";
+        } else {
+          generateor.innerText = "已生成!";
+        }
+        setTimeout(function () {
+          generateor.innerText = "生成";
+        }, 1000);
+        syncInfo();
       }
 
       function reset() {
@@ -130,7 +144,7 @@
       您似乎输入了不常见于账号密码的字符，最好检查一下输入法
     </div>
     <p>
-      <button onclick="syncInfo()">生成</button>
+      <button onclick="generate()" id="generate">生成</button>
       <button onclick="reset()">重置</button>
     </p>
     <div>
@@ -139,7 +153,8 @@
         >这里的密码使用明文是因为生成的链接中的密码是也是明文的
       </p>
     </div>
-    <div id="display">
+    <div class="level" id="linking">
+      <div class="box">
       <div id="disA" class="stack">
         <button onclick="window.open(`http:\/\/10.2.193.1\/`)">
           学院南路无线网
@@ -184,33 +199,41 @@
           <a href="http://192.168.31.2/" target="_blank"
             >http://192.168.31.2/</a
           >
+          </div>
         </div>
       </div>
     </div>
     <div>
+      <div class="level" id="description">
+        <div class="box">
+          <h2>使用方法</h2>
       <p>
-        <strong>使用方法：</strong
-        >左侧的按钮是常规登录页面；点击<strong>右侧链接（而不是按钮）</strong>才会在新标签页中进行登录，若能断定<a
+            左侧的按钮是常规登录页面；点击<strong>右侧链接（而不是按钮）</strong>才会在新标签页中进行登录，若能断定<a
           href="#login-success"
           >登录成功</a
         >，将其收藏到书签栏即可实现再次点开时一键登录（在移动平台上选择添加到主屏幕即可）。
       </p>
       <p>在连接到CUFE校园网的情况下，点击链接会直接登录校园网。</p>
+        </div>
+      </div>
 
-      <div class="container">
+      <div class="level" id="success">
         <div class="box">
           <h2 id="login-success">登录成功</h2>
-          <p>新打开的标签页中会开头有“result:1”字样即表示登录成功。</p>
-          <img src="success.png" alt="result:1" style="max-width: 100%" />
+          <p>新打开的标签页中开头有“result:1”字样即表示登录成功。</p>
+          <img src="success.png" alt="result:1" />
         </div>
-        <div class="box box-fail">
+      </div>
+      <div class="level" id="failure">
+        <div class="box">
           <h2>登录失败</h2>
           <p>
-            新打开的标签页中会开头有“result:0”字样或者“Error205”即表示登录失败，多刷新几次一般可以解决。（如果啥都没有，请检查是否连接到CUFE校园网）
+            新打开的标签页中开头有“result:0”字样或者“Error205”即表示登录失败，如果之前能成功，多刷新几次一般可以解决，或者检查账号密码。（如果啥都没有，请检查是否连接到CUFE校园网）
           </p>
         </div>
       </div>
-      <div class="box box-tips">
+      <div class="level" id="tips">
+        <div class="box">
         <h2>小贴士</h2>
         <p>
           极短时间内同时打开4个链接可能会导致其中一个登录失败，一般来说刷新即可解决。
@@ -218,14 +241,19 @@
         <p>
           连接到校园网后，如果自动弹出登录页面，可以直接关闭（或选择“不连接互联网使用”），然后访问以上链接。
         </p>
-        <img src="skip.png" alt="不连接互联网使用" style="max-width: 100%" />
+          <img src="skip.png" alt="不连接互联网使用" />
+        </div>
       </div>
-      <div class="box box-qa">
+
+      <div class="level" id="qanda">
+        <div class="box">
         <h2>常见问题</h2>
         <p class="question">Q：为什么是这4个地址？</p>
         <p class="answer">
           A：请参见智慧校园建设中心发布的
-          <a href="https://zhxy.cufe.edu.cn/info/1040/3391.htm" target="_blank"
+            <a
+              href="https://zhxy.cufe.edu.cn/info/1040/3391.htm"
+              target="_blank"
             >校园网使用说明</a
           >。
         </p>
@@ -248,19 +276,19 @@
             target="_blank"
             >学院南路无线网</a
           >
-          <br />
+            <!-- <br /> -->
           <a
             href="http://10.13.13.2/drcom/logout?callback=dr1005"
             target="_blank"
             >沙河校区有线网</a
           >
-          <br />
+            <!-- <br /> -->
           <a
             href="http://10.200.0.5/drcom/logout?callback=dr1005"
             target="_blank"
             >沙河校区无线网</a
           >
-          <br />
+            <!-- <br /> -->
           <a
             href="http://192.168.31.2/drcom/logout?callback=dr1005"
             target="_blank"
@@ -269,7 +297,8 @@
         </p>
       </div>
     </div>
-    <div class="box box-github">
+    <div class="level" id="github">
+      <div class="box">
       <h2>项目地址</h2>
       <p>
         你可以在GitHub上找到这个项目：<br />
@@ -277,6 +306,7 @@
           >https://github.com/epicApis/CUFE-NetLogin</a
         >
       </p>
+      </div>
     </div>
   </body>
 </html>

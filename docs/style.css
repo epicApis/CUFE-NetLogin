@@ -1,15 +1,20 @@
 /* styles.css */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
-  margin: 10px;
+  margin: 0;
   padding: 0;
-  max-width: 720px;
   text-align: center;
+  line-height: 1.7;
+  font-size: 18px;
 }
 
 h1,
 h2 {
-  color: #333;
+  color: #000000;
 }
 
 button {
@@ -18,38 +23,52 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 18px;
   margin: 4px 2px 4px 2px;
   transition: all 0.3s ease 0s;
   white-space: nowrap;
   border-radius: 5px;
+  background-color: rgb(221, 221, 221);
 }
 
 button:hover {
-  background-color: gray;
-  color: white;
+  background-color: rgb(249, 234, 255);
 }
 
 .button-default {
-  background-color: lightgray;
-  color: black;
+  background-color: rgb(230, 234, 222);
 }
 
 .button-copied {
-  background-color: darkgreen;
-  color: white;
+  background-color: rgb(130, 224, 130);
 }
 
-.stack a {
-  white-space: nowrap;
-  color: darkblue;
-  background-color: rgb(234, 234, 234);
-  align-items: center;
-  padding: 7px;
+a {
+  color: #333;
+  text-decoration: none;
+  border: 2px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 0 6px;
+  margin: 2px;
+  background: rgb(246, 248, 250);
+  display: inline-block;
+}
+
+a:hover {
+  background: rgb(234, 234, 234);
+  text-decoration: underline;
 }
 
 .stack {
   display: flex;
+}
+
+.stack a {
+  white-space: nowrap;
+  color: rgb(53, 59, 162);
+  background-color: rgb(230, 234, 222);
+  align-items: center;
+  padding: 7px;
 }
 
 .container {
@@ -58,91 +77,98 @@ button:hover {
   justify-content: space-around;
 }
 
-.box {
-  flex: 1 1 45%;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  color: black;
-  background-color: rgba(
-    0,
-    255,
-    0,
-    0.2
-  ); /* Green background with transparency */
-  text-align: left;
+.level {
+  width: 100%;
+  min-height: 20px;
+  padding: 15px 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
 }
 
-.box h2 {
+.box {
+  flex: 1 1 45%;
+  width: 62%;
+  max-width: 720px;
+  min-width: 500px;
+  margin: 10px;
+  padding: 20px;
+  color: black;
+  text-align: left;
+}
+#success h2 {
   color: green;
 }
 
-.box-fail {
-  background-color: rgba(255, 0, 0, 0.2); /* Red background with transparency */
-}
-
-.box-fail h2 {
+#failure h2 {
   color: red;
 }
 
-.box-tips {
-  background-color: rgba(
-    128,
-    0,
-    128,
-    0.2
-  ); /* Purple background with transparency */
-}
-
-.box-tips h2 {
+#tips h2 {
   color: purple;
 }
 
-.box-qa {
-  background-color: rgba(
-    0,
-    0,
-    255,
-    0.2
-  ); /* Light blue background with transparency */
-}
-
-.box-qa h2 {
+#qanda h2 {
   color: blue;
 }
 
-.box-qa p {
+#qanda p {
   margin: 10px 0;
 }
 
-.box-qa .question {
+#qanda .question {
   font-weight: bold;
   color: darkblue;
 }
-
-.box-qa .answer {
+#qanda .answer {
   margin-left: 20px;
-  color: darkgreen;
+  color: rgb(44, 44, 44);
 }
 
-.box-github {
-  background-color: rgba(0, 0, 0, 0.2); /* Black background with transparency */
+#linking {
+  background-color: rgb(243, 243, 243);
 }
 
-.box-github h2 {
-  color: black;
+#description {
+  background-color: rgb(237, 237, 255);
+}
+
+#success {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+#qanda {
+  background-color: azure;
+}
+
+#failure {
+  background-color: rgba(255, 0, 0, 0.2); /* Red background with transparency */
+}
+
+#tips {
+  background-color: rgb(
+    255,
+    240,
+    255
+  ); /* Purple background with transparency */
 }
 
 .empty {
   border: 2px solid red;
 }
+
 input {
   border: 2px solid;
 }
 
-label,
+label {
+  height: 25px;
+}
 input {
   height: 25px;
+  border-radius: 5px;
+  border: #333 2px solid;
 }
 
 #inputcontainer {
@@ -155,4 +181,9 @@ input {
   white-space: nowrap;
   display: flex;
   align-items: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }

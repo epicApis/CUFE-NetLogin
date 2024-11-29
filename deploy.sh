@@ -1,8 +1,8 @@
-# if using python3
+# Python3
 python3 -m pip install requests
-# or
+# 或
 pip3 install requests
-# or
+# 或
 python -m pip install requests
-# or
+# 或
 pip install requests
