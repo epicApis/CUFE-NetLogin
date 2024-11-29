@@ -12,6 +12,10 @@
 
 # 使用方法
 
+## 网页工具
+
+访问 [epicapis.net](https://epicapis.net) 或 [epicapis.github.io/CUFE-NetLogin](https://epicapis.github.io/CUFE-NetLogin/)。
+
 ## Python 脚本
 
 在确保当前环境安装了 Python 及其 requests 包的情况下，下载 releases 中的 logincufe.py 脚本后，编辑并保存其中的学号和密码，然后运行即可查看效果。
