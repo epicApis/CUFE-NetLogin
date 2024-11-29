@@ -91,7 +91,7 @@ a:hover {
   flex: 1 1 45%;
   width: 62%;
   max-width: 720px;
-  min-width: 500px;
+  min-width: auto;
   margin: 10px;
   padding: 20px;
   color: black;
