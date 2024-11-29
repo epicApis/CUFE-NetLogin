@@ -44,7 +44,7 @@ python -m pip install requests
 
 ## logincufe.py
 
-这是主要的 Python 脚本文件，用于实现自动登录和断线重连功能。用户需要在此文件中填写自己的学号和密码。
+这是主要的 Python 脚本文件，用于实现自动登录功能。用户需要在此文件中填写自己的学号和密码。
 
 ## login1page.html
 
