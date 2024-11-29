@@ -75,6 +75,7 @@
         generateor = document.getElementById("generate");
         username = document.getElementById("username").value;
         password = document.getElementById("password").value;
+        backgroundlevel = document.getElementById("linking");
         if (username === "" || password === "") {
           generateor.innerText = "请输入学号和密码";
         } else {
@@ -83,6 +84,7 @@
         setTimeout(function () {
           generateor.innerText = "生成";
         }, 1000);
+        backgroundlevel.scrollIntoView();
         syncInfo();
       }
 
