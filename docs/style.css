@@ -17,6 +17,12 @@ h2 {
   color: #000000;
 }
 
+@media (max-width: 680px) {
+  .responsive-button {
+    display: none;
+  }
+}
+
 button {
   border: none;
   padding: 8px 16px;
